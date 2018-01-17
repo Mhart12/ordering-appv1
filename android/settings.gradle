@@ -1,0 +1,3 @@
+rootProject.name = 'ordering_appv1'
+
+include ':app'
