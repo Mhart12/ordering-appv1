@@ -4,3 +4,5 @@ export const LOGIN_USER_SUCCESS = 'login_user_success';
 export const LOGIN_USER_FAIL = 'login_user_fail';
 export const LOGIN_USER = 'login_user';
 export const PLANT_UPDATE = 'plant_update';
+export const PLANT_CREATE = 'plant_create';
+export const PLANT_FETCH_SUCCESS = 'plant_fetch_success';

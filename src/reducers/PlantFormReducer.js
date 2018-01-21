@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   type: '',
   variety_name: '',
   phone: '',
-  shift: 'Monday'
+  shift: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

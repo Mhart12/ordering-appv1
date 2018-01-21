@@ -10,12 +10,12 @@ import Router from './Router';
 class App extends Component {
   componentWillMount() {
     const config = {
-      apiKey: 'AIzaSyAB6eKgM97tbdqm2AjZLkpIY-q-yBlkZ-E',
-      authDomain: 'manager-34658.firebaseapp.com',
-      databaseURL: 'https://manager-34658.firebaseio.com',
-      projectId: 'manager-34658',
-      storageBucket: 'manager-34658.appspot.com',
-      messagingSenderId: '380486741152'
+      apiKey: 'AIzaSyD_UF-KyxUp6XjAMdmQBPWn9ToJM2RBP7c',
+      authDomain: 'orderingappv1.firebaseapp.com',
+      databaseURL: 'https://orderingappv1.firebaseio.com',
+      projectId: 'orderingappv1',
+      storageBucket: 'orderingappv1.appspot.com',
+      messagingSenderId: '1021887257452'
     };
 
     firebase.initializeApp(config);
