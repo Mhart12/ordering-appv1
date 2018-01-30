@@ -18,10 +18,10 @@ const RouterComponent = () => {
             rightTitle="Add"
             key="plantList"
             component={PlantList}
-            title="Select Plant Type"
+            title="Select Current Orders"
             initial
           />
-          <Scene key="plantCreate" component={PlantCreate} title="Create Plant Variety" />
+          <Scene key="plantCreate" component={PlantCreate} title="Create New Wolcott Order" />
           <Scene key="plantEdit" component={PlantEdit} title="Edit Plant" />
         </Scene>
       </Scene>

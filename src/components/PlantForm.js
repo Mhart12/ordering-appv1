@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Picker } from 'react-native';
+import { Calendar } from 'react-native-calendars';
 import { connect } from 'react-redux';
 import { plantUpdate } from '../actions';
 import { CardSection, Input } from './common';
@@ -19,10 +20,37 @@ class PlantForm extends Component {
 
         <CardSection>
           <Input
+            label="Name"
+            placeholder="Ex. Poinsettia, Gerber Daisy"
+            value={this.props.name}
+            onChangeText={value => this.props.plantUpdate({ prop: 'name', value })}
+          />
+        </CardSection>
+
+        <CardSection>
+          <Input
             label="Variety Name"
             placeholder="Ex. Jester Red, Sunburst Yellow"
             value={this.props.variety_name}
             onChangeText={value => this.props.plantUpdate({ prop: 'variety_name', value })}
+          />
+        </CardSection>
+
+        <CardSection>
+          <Input
+            label="Pot Size"
+            placeholder="Ex. 3in, 4.5in Black"
+            value={this.props.pot_size}
+            onChangeText={value => this.props.plantUpdate({ prop: 'pot_size', value })}
+          />
+        </CardSection>
+
+        <CardSection>
+          <Input
+            label="Amount"
+            placeholder="Ex. 10 flats, 50"
+            value={this.props.amount}
+            onChangeText={value => this.props.plantUpdate({ prop: 'amount', value })}
           />
         </CardSection>
 
@@ -40,19 +68,12 @@ class PlantForm extends Component {
             Select Day
           </Text>
           <View style={{ flex: 2 }}>
-            <Picker
-              style={{ flex: 1 }}
-              selectedValue={this.props.shift}
-              onValueChange={value => this.props.plantUpdate({ prop: 'shift', value })}
-            >
-              <Picker.Item label="Monday" value="Monday" />
-              <Picker.Item label="Tuesday" value="Tuesday" />
-              <Picker.Item label="Wednesday" value="Wednesday" />
-              <Picker.Item label="Thursday" value="Thursday" />
-              <Picker.Item label="Friday" value="Friday" />
-              <Picker.Item label="Saturday" value="Saturday" />
-              <Picker.Item label="Sunday" value="Sunday" />
-            </Picker>
+            <Calendar
+              style={{
+              }}
+              selectedValue={this.props.day}
+              onDayPress={value => this.props.plantUpdate({ prop: 'day', value })}
+            />
           </View>
         </CardSection>
       </View>
@@ -62,16 +83,15 @@ class PlantForm extends Component {
 
 const styles = {
   pickerTextStyle: {
-    flex: 1,
     fontSize: 18,
     paddingLeft: 20
   }
 };
 
 const mapStateToProps = (state) => {
-  const { type, variety_name, phone, shift } = state.plantForm;
+  const { type, name, variety_name, pot_size, amount, phone, day } = state.plantForm;
 
-  return { type, variety_name, phone, shift };
+  return { type, name, variety_name, pot_size, amount, phone, day };
 };
 
 export default connect(mapStateToProps, { plantUpdate })(PlantForm);

@@ -18,15 +18,18 @@ class PlantEdit extends Component {
   }
 
   onButtonPress() {
-    const { type, variety_name, phone, shift } = this.props;
+    const { type, name, variety_name, pot_size, amount, phone, day } = this.props;
     //console.log(type, variety_name, phone, shift);
-    this.props.plantSave({ type, variety_name, phone, shift, uid: this.props.plant.uid });
+    this.props.plantSave({
+      type, name, variety_name, pot_size, amount, phone, day, uid: this.props.plant.uid });
   }
 
   onTextPress() {
-    const { type, variety_name, phone, shift } = this.props;
+    const { name, variety_name, pot_size, amount, phone, day } = this.props;
 
-    Communications.text(phone, `You have just received a new order: Need 20 ${type} ${variety_name} by ${shift}`);
+    Communications.text(
+      phone,
+      `You have just received a new order: Need ${amount} of ${pot_size} ${name} in ${variety_name} by ${day}`);
   }
 
   onAccept() {
@@ -74,8 +77,8 @@ class PlantEdit extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { type, variety_name, phone, shift } = state.plantForm;
-return { type, variety_name, phone, shift };
+  const { type, name, variety_name, pot_size, amount, phone, day } = state.plantForm;
+return { type, name, variety_name, pot_size, amount, phone, day };
 };
 
 export default connect(mapStateToProps, {

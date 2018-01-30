@@ -14,12 +14,12 @@ export const plantUpdate = ({ prop, value }) => {
   };
 };
 
-export const plantCreate = ({ type, variety_name, phone, shift }) => {
+export const plantCreate = ({ type, name, variety_name, pot_size, amount, phone, day }) => {
   const { currentUser } = firebase.auth();
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/plants`)
-      .push({ type, variety_name, phone, shift })
+      .push({ type, name, variety_name, pot_size, amount, phone, day })
       .then(() => {
         dispatch({ type: PLANT_CREATE });
         Actions.pop();
@@ -38,12 +38,12 @@ export const plantFetch = () => {
   };
 };
 
-export const plantSave = ({ type, variety_name, phone, shift, uid }) => {
+export const plantSave = ({ type, name, variety_name, pot_size, amount, phone, day, uid }) => {
   const { currentUser } = firebase.auth();
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/plants/${uid}`)
-      .set({ type, variety_name, phone, shift })
+      .set({ type, name, variety_name, pot_size, amount, phone, day })
       .then(() => {
         dispatch({ type: PLANT_SAVE_SUCCESS });
         Actions.pop();

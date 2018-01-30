@@ -6,9 +6,12 @@ import {
 
 const INITIAL_STATE = {
   type: '',
+  name: '',
   variety_name: '',
+  pot_size: '',
+  amount: '',
   phone: '',
-  shift: ''
+  day: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

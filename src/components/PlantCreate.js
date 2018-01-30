@@ -7,9 +7,10 @@ import PlantForm from './PlantForm';
 class PlantCreate extends Component {
 
   onButtonPress() {
-    const { type, variety_name, phone, shift } = this.props;
+    const { type, name, variety_name, pot_size, amount, phone, day } = this.props;
 
-    this.props.plantCreate({ type, variety_name, phone, shift: shift || 'Monday' });
+    this.props.plantCreate({
+      type, name, variety_name, pot_size, amount, phone, day: day || 'Monday' });
   }
 
   render() {
@@ -27,9 +28,9 @@ class PlantCreate extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { type, variety_name, phone, shift } = state.plantForm;
+  const { type, name, variety_name, pot_size, amount, phone, day } = state.plantForm;
 
-  return { type, variety_name, phone, shift };
+  return { type, name, variety_name, pot_size, amount, phone, day };
 };
 
 export default connect(mapStateToProps, {
