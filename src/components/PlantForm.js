@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, Picker } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import { connect } from 'react-redux';
+import PlantEdit from './PlantEdit';
 import { plantUpdate } from '../actions';
 import { CardSection, Input } from './common';
 
 class PlantForm extends Component {
   render() {
     return (
-      <View>
+      <ScrollView>
         <CardSection>
           <Input
             label="Type"
@@ -69,14 +70,15 @@ class PlantForm extends Component {
           </Text>
           <View style={{ flex: 2 }}>
             <Calendar
-              style={{
-              }}
+              style={{ flex: 1 }}
+              markingType={'period'}
               selectedValue={this.props.day}
               onDayPress={value => this.props.plantUpdate({ prop: 'day', value })}
             />
           </View>
         </CardSection>
-      </View>
+        //PlantEdit />
+      </ScrollView>
     );
   }
 }
